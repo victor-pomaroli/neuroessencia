@@ -66,32 +66,32 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="lg:hidden bg-headercor border-t border-sand px-4 py-4 flex flex-col gap-4">
+        <div className="lg:hidden bg-headercor border-t border-sand px-5 py-3 flex flex-col gap-1">
           <a
             href="#sobre"
             onClick={() => setMenuOpen(false)}
-            className="text-texto font-medium py-2 border-b border-sand"
+            className="text-texto font-medium py-3.5 border-b border-sand text-base"
           >
             Sobre
           </a>
           <a
             href="#indicacoes"
             onClick={() => setMenuOpen(false)}
-            className="text-texto font-medium py-2 border-b border-sand"
+            className="text-texto font-medium py-3.5 border-b border-sand text-base"
           >
             Para quem
           </a>
           <a
             href="#processo"
             onClick={() => setMenuOpen(false)}
-            className="text-texto font-medium py-2 border-b border-sand"
+            className="text-texto font-medium py-3.5 border-b border-sand text-base"
           >
             Como funciona
           </a>
           <a
             href="#faq"
             onClick={() => setMenuOpen(false)}
-            className="text-texto font-medium py-2 border-b border-sand"
+            className="text-texto font-medium py-3.5 border-b border-sand text-base"
           >
             Dúvidas
           </a>
@@ -99,9 +99,9 @@ export default function Header() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 bg-titulo text-white px-4 py-3 rounded-full font-semibold"
+            className="flex items-center justify-center gap-2 bg-titulo text-white px-4 py-4 rounded-full font-semibold text-base mt-2 mb-1"
           >
-            <WhatsAppIcon className="w-5 h-5" />
+            <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />
             Agendar pelo WhatsApp
           </a>
         </div>

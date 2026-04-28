@@ -39,13 +39,13 @@ function WhatsAppButton({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={`inline-flex items-center gap-3 font-semibold rounded-full shadow-lg active:scale-95 transition-all duration-200 ${
+        className={`inline-flex items-center justify-center gap-3 font-semibold rounded-full shadow-lg active:scale-95 transition-all duration-200 ${
           light
             ? "bg-white text-titulo hover:bg-fundo"
             : "bg-titulo text-white hover:bg-titulo-light"
-        } ${large ? "px-8 py-4 text-lg" : "px-6 py-3 text-base"}`}
+        } ${large ? "w-full sm:w-auto px-7 py-4 text-base sm:text-lg" : "px-6 py-3.5 text-base"}`}
       >
-        <WhatsAppIcon className={large ? "w-6 h-6" : "w-5 h-5"} />
+        <WhatsAppIcon className={large ? "w-6 h-6 flex-shrink-0" : "w-5 h-5 flex-shrink-0"} />
         {text}
       </a>
       {microcopy && (
@@ -74,7 +74,7 @@ export default function Home() {
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-fundo min-h-[88vh] flex items-center">
+    <section className="relative overflow-hidden bg-fundo min-h-[90vh] flex items-center">
       <div
         className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-20 pointer-events-none"
         style={{ background: "#f5d0c5", transform: "translate(30%, -30%)" }}
@@ -84,17 +84,17 @@ function HeroSection() {
         style={{ background: "#4faf9e", transform: "translate(-30%, 30%)" }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 py-20 lg:py-0 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 w-full">
+      <div className="relative max-w-6xl mx-auto px-5 sm:px-6 py-16 lg:py-0 flex flex-col lg:flex-row items-center gap-10 lg:gap-16 w-full">
         <div className="flex-1 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 bg-white border border-sand text-titulo text-sm font-medium px-4 py-2 rounded-full mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-white border border-sand text-titulo text-xs sm:text-sm font-medium px-3 sm:px-4 py-2 rounded-full mb-6 shadow-sm">
             <span
-              className="w-2 h-2 rounded-full bg-green-400"
+              className="w-2 h-2 rounded-full bg-green-400 flex-shrink-0"
               style={{ animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite" }}
             />
             Agenda aberta — presencial e online
           </div>
 
-          <h1 className="font-display text-5xl lg:text-7xl text-titulo leading-[1.05] mb-6">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl text-titulo leading-[1.05] mb-5 lg:mb-6">
             Entender a sua <br />
             <em className="not-italic" style={{ fontStyle: "italic", fontWeight: 300 }}>
               mente
@@ -103,7 +103,7 @@ function HeroSection() {
             primeiro passo
           </h1>
 
-          <p className="text-texto text-lg lg:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+          <p className="text-texto text-base sm:text-lg lg:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
             A avaliação neuropsicológica oferece respostas claras sobre como
             você pensa, aprende e sente — para que você possa viver com mais
             leveza e intencionalidade.
@@ -117,7 +117,7 @@ function HeroSection() {
           />
         </div>
 
-        <div className="flex-shrink-0 relative w-72 h-80 lg:w-96 lg:h-[480px]">
+        <div className="flex-shrink-0 relative w-[min(288px,85vw)] h-72 sm:h-80 lg:w-96 lg:h-[480px]">
           <div
             className="w-full h-full overflow-hidden shadow-2xl"
             style={{ borderRadius: "2rem" }}
@@ -131,11 +131,11 @@ function HeroSection() {
             />
           </div>
           <div
-            className="absolute -bottom-4 -left-4 bg-white shadow-lg p-4 flex items-center gap-3"
+            className="absolute -bottom-4 left-3 sm:-left-4 bg-white shadow-lg p-3 sm:p-4 flex items-center gap-3"
             style={{ borderRadius: "1rem" }}
           >
             <div
-              className="w-10 h-10 flex items-center justify-center text-titulo font-bold text-lg"
+              className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-titulo font-bold text-base sm:text-lg flex-shrink-0"
               style={{ background: "#f5d0c5", borderRadius: "50%" }}
             >
               ✓
@@ -161,11 +161,11 @@ function StatsStrip() {
 
   return (
     <div className="bg-titulo text-white">
-      <div className="max-w-6xl mx-auto px-6 py-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 py-8 lg:py-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {stats.map((stat, i) => (
             <div key={i} className="text-center">
-              <p className="font-display text-4xl font-semibold">{stat.number}</p>
+              <p className="font-display text-3xl sm:text-4xl font-semibold">{stat.number}</p>
               <p className="text-sm mt-1" style={{ opacity: 0.75 }}>
                 {stat.label}
               </p>
@@ -179,12 +179,12 @@ function StatsStrip() {
 
 function AboutSection() {
   return (
-    <section id="sobre" className="py-20 lg:py-28 bg-fundo">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+    <section id="sobre" className="py-16 lg:py-28 bg-fundo">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
           <div className="flex-shrink-0 relative">
             <div
-              className="w-72 h-80 lg:w-80 lg:h-96 overflow-hidden shadow-xl"
+              className="w-[min(288px,85vw)] h-72 sm:h-80 lg:w-80 lg:h-96 overflow-hidden shadow-xl"
               style={{ borderRadius: "2rem" }}
             >
               <Image
@@ -195,7 +195,7 @@ function AboutSection() {
               />
             </div>
             <div
-              className="absolute -bottom-4 -right-4 bg-white shadow-lg p-4 text-center"
+              className="absolute -bottom-4 -right-4 bg-white shadow-lg p-3 sm:p-4 text-center"
               style={{ borderRadius: "1rem" }}
             >
               <p className="text-titulo font-bold text-sm">CRP/MG</p>
@@ -203,25 +203,25 @@ function AboutSection() {
             </div>
           </div>
 
-          <div className="flex-1 text-center lg:text-left">
-            <span className="text-sm font-medium text-botao uppercase tracking-widest mb-3 block">
+          <div className="flex-1 text-center lg:text-left mt-4 lg:mt-0">
+            <span className="text-xs sm:text-sm font-semibold text-botao uppercase tracking-widest mb-3 block">
               Sobre a profissional
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl text-titulo mb-6 leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-titulo mb-5 leading-tight">
               Uma avaliação feita com ciência{" "}
               <em style={{ fontWeight: 300 }}>e cuidado</em>
             </h2>
-            <p className="text-texto text-lg leading-relaxed mb-5">
+            <p className="text-texto text-base sm:text-lg leading-relaxed mb-5">
               Sou neuropsicóloga especializada em avaliação do funcionamento
               cognitivo, emocional e comportamental. Acredito que cada mente é
               única — e que uma avaliação bem feita é o primeiro passo para o
               tratamento certo, a escola certa, o suporte certo.
             </p>
-            <p className="text-texto text-lg leading-relaxed mb-8">
+            <p className="text-texto text-base sm:text-lg leading-relaxed mb-8">
               Trabalho com método científico validado e linguagem acessível, para
               que você saia da consulta com clareza — não com mais dúvidas.
             </p>
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start">
               {[
                 "Neuropsicologia",
                 "Avaliação Cognitiva",
@@ -230,7 +230,7 @@ function AboutSection() {
               ].map((tag) => (
                 <span
                   key={tag}
-                  className="bg-fundo-alt text-titulo text-sm px-3 py-1.5 border border-sand font-medium"
+                  className="bg-fundo-alt text-titulo text-sm px-3 py-2 border border-sand font-medium"
                   style={{ borderRadius: "9999px" }}
                 >
                   {tag}
@@ -277,17 +277,17 @@ function IndicationsSection() {
   ];
 
   return (
-    <section id="indicacoes" className="py-20 lg:py-28 bg-fundo-alt">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <span className="text-sm font-medium text-botao uppercase tracking-widest mb-3 block">
+    <section id="indicacoes" className="py-16 lg:py-28 bg-fundo-alt">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="text-center mb-10 lg:mb-14">
+          <span className="text-xs sm:text-sm font-semibold text-botao uppercase tracking-widest mb-3 block">
             Para quem é indicado
           </span>
-          <h2 className="font-display text-4xl lg:text-5xl text-titulo leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-titulo leading-tight">
             Você se identifica{" "}
             <em style={{ fontWeight: 300 }}>com alguma situação?</em>
           </h2>
-          <p className="text-texto text-lg mt-4 max-w-2xl mx-auto">
+          <p className="text-texto text-base sm:text-lg mt-4 max-w-2xl mx-auto">
             A avaliação neuropsicológica pode ser o passo que estava faltando
             para entender o que está acontecendo e encontrar o caminho certo.
           </p>
@@ -300,7 +300,7 @@ function IndicationsSection() {
               className="bg-white overflow-hidden shadow-md hover:shadow-lg transition-shadow"
               style={{ borderRadius: "1.5rem" }}
             >
-              <div className="relative h-48">
+              <div className="relative h-52 sm:h-48">
                 <Image
                   src={group.image}
                   alt={group.title}
@@ -321,8 +321,8 @@ function IndicationsSection() {
                   </h3>
                 </div>
               </div>
-              <div className="p-6">
-                <p className="text-texto leading-relaxed">{group.description}</p>
+              <div className="p-5 sm:p-6">
+                <p className="text-texto text-base leading-relaxed">{group.description}</p>
               </div>
             </div>
           ))}
@@ -381,31 +381,31 @@ function InvestigateSection() {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-fundo">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <span className="text-sm font-medium text-botao uppercase tracking-widest mb-3 block">
+    <section className="py-16 lg:py-28 bg-fundo">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="text-center mb-10 lg:mb-14">
+          <span className="text-xs sm:text-sm font-semibold text-botao uppercase tracking-widest mb-3 block">
             Áreas de investigação
           </span>
-          <h2 className="font-display text-4xl lg:text-5xl text-titulo leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-titulo leading-tight">
             O que a avaliação{" "}
             <em style={{ fontWeight: 300 }}>pode identificar?</em>
           </h2>
-          <p className="text-texto text-lg mt-4 max-w-2xl mx-auto">
+          <p className="text-texto text-base sm:text-lg mt-4 max-w-2xl mx-auto">
             Com instrumentos científicos validados, investigamos uma ampla gama
             de condições cognitivas, emocionais e do neurodesenvolvimento.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {conditions.map((c) => (
             <div
               key={c.title}
-              className="bg-white p-5 shadow-sm hover:shadow-md transition-shadow border border-sand"
+              className="bg-white p-4 sm:p-5 shadow-sm hover:shadow-md transition-shadow border border-sand"
               style={{ borderRadius: "1rem" }}
             >
               <span className="text-3xl mb-3 block">{c.icon}</span>
-              <h3 className="font-semibold text-titulo mb-1">{c.title}</h3>
+              <h3 className="font-semibold text-titulo text-sm sm:text-base mb-1">{c.title}</h3>
               <p className="text-sm text-texto-light leading-relaxed">{c.desc}</p>
             </div>
           ))}
@@ -444,29 +444,29 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section id="processo" className="py-20 lg:py-28 bg-titulo">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-14">
+    <section id="processo" className="py-16 lg:py-28 bg-titulo">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="text-center mb-10 lg:mb-14">
           <span
-            className="text-sm font-medium uppercase tracking-widest mb-3 block"
+            className="text-xs sm:text-sm font-semibold uppercase tracking-widest mb-3 block"
             style={{ color: "#f5d0c5" }}
           >
             Passo a passo
           </span>
-          <h2 className="font-display text-4xl lg:text-5xl text-white leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
             Como funciona o <em style={{ fontWeight: 300 }}>processo?</em>
           </h2>
-          <p className="text-lg mt-4 max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.7)" }}>
+          <p className="text-base sm:text-lg mt-4 max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.7)" }}>
             Do primeiro contato ao laudo final, tudo é conduzido com cuidado,
             transparência e respeito pelo seu tempo.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           {steps.map((step) => (
             <div
               key={step.number}
-              className="p-8 border"
+              className="p-6 lg:p-8 border"
               style={{
                 background: "rgba(255,255,255,0.1)",
                 borderColor: "rgba(255,255,255,0.2)",
@@ -474,15 +474,15 @@ function HowItWorksSection() {
               }}
             >
               <div
-                className={`inline-flex items-center justify-center w-12 h-12 ${step.bgClass} text-titulo font-bold text-lg mb-4`}
+                className={`inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 ${step.bgClass} text-titulo font-bold text-base sm:text-lg mb-4`}
                 style={{ borderRadius: "0.75rem" }}
               >
                 {step.number}
               </div>
-              <h3 className="text-white font-semibold text-xl mb-3">
+              <h3 className="text-white font-semibold text-lg sm:text-xl mb-3">
                 {step.title}
               </h3>
-              <p style={{ color: "rgba(255,255,255,0.72)" }} className="leading-relaxed">
+              <p style={{ color: "rgba(255,255,255,0.72)" }} className="text-base leading-relaxed">
                 {step.desc}
               </p>
             </div>
@@ -531,30 +531,30 @@ function BenefitsSection() {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-fundo-alt">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <span className="text-sm font-medium text-botao uppercase tracking-widest mb-3 block">
+    <section className="py-16 lg:py-28 bg-fundo-alt">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="text-center mb-10 lg:mb-14">
+          <span className="text-xs sm:text-sm font-semibold text-botao uppercase tracking-widest mb-3 block">
             O que você leva
           </span>
-          <h2 className="font-display text-4xl lg:text-5xl text-titulo leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-titulo leading-tight">
             Mais do que um laudo —{" "}
             <em style={{ fontWeight: 300 }}>uma nova perspectiva</em>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {benefits.map((b) => (
             <div
               key={b.title}
-              className="bg-white p-8 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white p-6 lg:p-8 shadow-sm hover:shadow-md transition-shadow"
               style={{ borderRadius: "1.5rem" }}
             >
               <span className="text-4xl mb-4 block">{b.icon}</span>
-              <h3 className="font-semibold text-titulo text-xl mb-3">
+              <h3 className="font-semibold text-titulo text-lg sm:text-xl mb-3">
                 {b.title}
               </h3>
-              <p className="text-texto leading-relaxed">{b.desc}</p>
+              <p className="text-texto text-base leading-relaxed">{b.desc}</p>
             </div>
           ))}
         </div>
@@ -583,13 +583,13 @@ function SocialProofSection() {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-fundo">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <span className="text-sm font-medium text-botao uppercase tracking-widest mb-3 block">
+    <section className="py-16 lg:py-28 bg-fundo">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="text-center mb-10 lg:mb-14">
+          <span className="text-xs sm:text-sm font-semibold text-botao uppercase tracking-widest mb-3 block">
             Experiências compartilhadas
           </span>
-          <h2 className="font-display text-4xl lg:text-5xl text-titulo leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-titulo leading-tight">
             O que dizem <em style={{ fontWeight: 300 }}>nossos pacientes</em>
           </h2>
           <p className="text-texto-light text-sm mt-3 italic">
@@ -597,11 +597,11 @@ function SocialProofSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-white p-8 shadow-sm border border-sand"
+              className="bg-white p-6 lg:p-8 shadow-sm border border-sand"
               style={{ borderRadius: "1.5rem" }}
             >
               <p
@@ -610,10 +610,10 @@ function SocialProofSection() {
               >
                 &ldquo;
               </p>
-              <p className="text-texto leading-relaxed mb-6 italic">{t.text}</p>
+              <p className="text-texto text-base leading-relaxed mb-6 italic">{t.text}</p>
               <div className="flex items-center gap-3">
                 <div
-                  className="w-10 h-10 flex items-center justify-center text-titulo font-bold"
+                  className="w-10 h-10 flex-shrink-0 flex items-center justify-center text-titulo font-bold"
                   style={{ background: "#f5d0c5", borderRadius: "50%" }}
                 >
                   {t.initial}
@@ -642,7 +642,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-6 text-left"
+        className="w-full flex items-center justify-between p-5 sm:p-6 text-left min-h-[56px]"
         aria-expanded={open}
       >
         <span className="text-white font-medium pr-4">{question}</span>
@@ -668,8 +668,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         </span>
       </button>
       {open && (
-        <div className="px-6 pb-6">
-          <p className="leading-relaxed" style={{ color: "rgba(255,255,255,0.72)" }}>
+        <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+          <p className="text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.72)" }}>
             {answer}
           </p>
         </div>
@@ -707,16 +707,16 @@ function FAQSection() {
   ];
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-titulo">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-14">
+    <section id="faq" className="py-16 lg:py-28 bg-titulo">
+      <div className="max-w-4xl mx-auto px-5 sm:px-6">
+        <div className="text-center mb-10 lg:mb-14">
           <span
-            className="text-sm font-medium uppercase tracking-widest mb-3 block"
+            className="text-xs sm:text-sm font-semibold uppercase tracking-widest mb-3 block"
             style={{ color: "#f5d0c5" }}
           >
             Dúvidas frequentes
           </span>
-          <h2 className="font-display text-4xl lg:text-5xl text-white leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
             Perguntas que{" "}
             <em style={{ fontWeight: 300 }}>todo mundo faz</em>
           </h2>
@@ -745,7 +745,7 @@ function FAQSection() {
 
 function FinalCTASection() {
   return (
-    <section className="py-20 lg:py-28 bg-fundo relative overflow-hidden">
+    <section className="py-16 lg:py-28 bg-fundo relative overflow-hidden">
       <div
         className="absolute top-0 left-1/2 w-96 h-96 rounded-full pointer-events-none"
         style={{
@@ -754,15 +754,15 @@ function FinalCTASection() {
           transform: "translate(-50%, -50%)",
         }}
       />
-      <div className="relative max-w-3xl mx-auto px-6 text-center">
-        <span className="text-sm font-medium text-botao uppercase tracking-widest mb-4 block">
+      <div className="relative max-w-3xl mx-auto px-5 sm:px-6 text-center">
+        <span className="text-xs sm:text-sm font-semibold text-botao uppercase tracking-widest mb-4 block">
           Pronto para começar?
         </span>
-        <h2 className="font-display text-5xl lg:text-6xl text-titulo leading-[1.1] mb-6">
+        <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-titulo leading-[1.1] mb-6">
           O próximo passo <br />
           <em style={{ fontWeight: 300 }}>começa com uma conversa</em>
         </h2>
-        <p className="text-texto text-lg leading-relaxed mb-8 max-w-xl mx-auto">
+        <p className="text-texto text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
           Entre em contato pelo WhatsApp, sem compromisso. Tire suas dúvidas,
           saiba mais sobre o processo e descubra como a avaliação
           neuropsicológica pode fazer a diferença na sua vida ou na vida de
