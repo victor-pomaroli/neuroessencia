@@ -1,30 +1,162 @@
-import Image from 'next/image'
+"use client";
+import Image from "next/image";
+import { useState } from "react";
+
+const WA_URL =
+  "https://wa.me/5531995356323?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20avalia%C3%A7%C3%A3o%20neuropsicol%C3%B3gica.";
 
 export default function Header() {
-    return (
-        <div className="bg-headercor w-full relative flex items-center lg:p-8 p-1">
-            <div className="flex w-full justify-center lg:justify-start lg:w-auto lg:absolute lg:left-4">
-                <Image
-                    src="/logo.jpeg"
-                    alt="Criança escolhendo cor do lápis"
-                    width={200}
-                    height={100}
-                    className="object-cover rounded max-w-[200px] w-full"
-                />
-            </div>
-            <div className="hidden lg:flex flex-row gap-14 text-xl mx-auto">
-                <a className="text-texto" href="/">Home</a>
-                <a className="text-texto" href="/sobre">Sobre</a>
-                <a className="text-texto" href="#">Especialidades</a>
-                <a className="text-texto" href="#">Corpo Clínico</a>
-            </div>
-            <a
-                href="https://wa.me/5531995356323"
-                target="_blank"
-                className="hidden lg:flex items-center gap-2 absolute right-4 rounded p-3 hover:bg-botao cursor-pointer border text-lg lg:text-xl"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48"> <path fill="#fff" d="M4.9,43.3l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5c5.1,0,9.8,2,13.4,5.6 C41,14.2,43,18.9,43,24c0,10.5-8.5,19-19,19c0,0,0,0,0,0h0c-3.2,0-6.3-0.8-9.1-2.3L4.9,43.3z"></path><path fill="#fff" d="M4.9,43.8c-0.1,0-0.3-0.1-0.4-0.1c-0.1-0.1-0.2-0.3-0.1-0.5L7,33.5c-1.6-2.9-2.5-6.2-2.5-9.6 C4.5,13.2,13.3,4.5,24,4.5c5.2,0,10.1,2,13.8,5.7c3.7,3.7,5.7,8.6,5.7,13.8c0,10.7-8.7,19.5-19.5,19.5c-3.2,0-6.3-0.8-9.1-2.3 L5,43.8C5,43.8,4.9,43.8,4.9,43.8z"></path><path fill="#cfd8dc" d="M24,5c5.1,0,9.8,2,13.4,5.6C41,14.2,43,18.9,43,24c0,10.5-8.5,19-19,19h0c-3.2,0-6.3-0.8-9.1-2.3 L4.9,43.3l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5 M24,43L24,43L24,43 M24,43L24,43L24,43 M24,4L24,4C13,4,4,13,4,24 c0,3.4,0.8,6.7,2.5,9.6L3.9,43c-0.1,0.3,0,0.7,0.3,1c0.2,0.2,0.4,0.3,0.7,0.3c0.1,0,0.2,0,0.3,0l9.7-2.5c2.8,1.5,6,2.2,9.2,2.2 c11,0,20-9,20-20c0-5.3-2.1-10.4-5.8-14.1C34.4,6.1,29.4,4,24,4L24,4z"></path><path fill="#40c351" d="M35.2,12.8c-3-3-6.9-4.6-11.2-4.6C15.3,8.2,8.2,15.3,8.2,24c0,3,0.8,5.9,2.4,8.4L11,33l-1.6,5.8 l6-1.6l0.6,0.3c2.4,1.4,5.2,2.2,8,2.2h0c8.7,0,15.8-7.1,15.8-15.8C39.8,19.8,38.2,15.8,35.2,12.8z"></path><path fill="#fff" d="M19.3,16c-0.4-0.8-0.7-0.8-1.1-0.8c-0.3,0-0.6,0-0.9,0 s-0.8,0.1-1.3,0.6c-0.4,0.5-1.7,1.6-1.7,4s1.7,4.6,1.9,4.9s3.3,5.3,8.1,7.2c4,1.6,4.8,1.3,5.7,1.2c0.9-0.1,2.8-1.1,3.2-2.3 c0.4-1.1,0.4-2.1,0.3-2.3c-0.1-0.2-0.4-0.3-0.9-0.6s-2.8-1.4-3.2-1.5c-0.4-0.2-0.8-0.2-1.1,0.2c-0.3,0.5-1.2,1.5-1.5,1.9 c-0.3,0.3-0.6,0.4-1,0.1c-0.5-0.2-2-0.7-3.8-2.4c-1.4-1.3-2.4-2.8-2.6-3.3c-0.3-0.5,0-0.7,0.2-1c0.2-0.2,0.5-0.6,0.7-0.8 c0.2-0.3,0.3-0.5,0.5-0.8c0.2-0.3,0.1-0.6,0-0.8C20.6,19.3,19.7,17,19.3,16z"></path> </svg> Whatsapp
-            </a>
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header className="bg-headercor sticky top-0 z-50 border-b border-sand shadow-sm">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <Image
+          src="/logo.jpeg"
+          alt="NeuroEssência"
+          width={160}
+          height={80}
+          className="object-contain"
+          priority
+        />
+
+        <nav className="hidden lg:flex items-center gap-8">
+          <a
+            href="#sobre"
+            className="text-texto hover:text-titulo transition-colors text-sm font-medium"
+          >
+            Sobre
+          </a>
+          <a
+            href="#indicacoes"
+            className="text-texto hover:text-titulo transition-colors text-sm font-medium"
+          >
+            Para quem
+          </a>
+          <a
+            href="#processo"
+            className="text-texto hover:text-titulo transition-colors text-sm font-medium"
+          >
+            Como funciona
+          </a>
+          <a
+            href="#faq"
+            className="text-texto hover:text-titulo transition-colors text-sm font-medium"
+          >
+            Dúvidas
+          </a>
+          <a
+            href={WA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-titulo text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-titulo-light transition-colors"
+          >
+            <WhatsAppIcon className="w-4 h-4" />
+            Agendar pelo WhatsApp
+          </a>
+        </nav>
+
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="lg:hidden p-2 text-titulo"
+          aria-label="Menu"
+        >
+          {menuOpen ? <CloseIcon /> : <MenuIcon />}
+        </button>
+      </div>
+
+      {menuOpen && (
+        <div className="lg:hidden bg-headercor border-t border-sand px-4 py-4 flex flex-col gap-4">
+          <a
+            href="#sobre"
+            onClick={() => setMenuOpen(false)}
+            className="text-texto font-medium py-2 border-b border-sand"
+          >
+            Sobre
+          </a>
+          <a
+            href="#indicacoes"
+            onClick={() => setMenuOpen(false)}
+            className="text-texto font-medium py-2 border-b border-sand"
+          >
+            Para quem
+          </a>
+          <a
+            href="#processo"
+            onClick={() => setMenuOpen(false)}
+            className="text-texto font-medium py-2 border-b border-sand"
+          >
+            Como funciona
+          </a>
+          <a
+            href="#faq"
+            onClick={() => setMenuOpen(false)}
+            className="text-texto font-medium py-2 border-b border-sand"
+          >
+            Dúvidas
+          </a>
+          <a
+            href={WA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 bg-titulo text-white px-4 py-3 rounded-full font-semibold"
+          >
+            <WhatsAppIcon className="w-5 h-5" />
+            Agendar pelo WhatsApp
+          </a>
         </div>
-    )
+      )}
+    </header>
+  );
+}
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M4 6h16M4 12h16M4 18h16"
+      />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
 }
