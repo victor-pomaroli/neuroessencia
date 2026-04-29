@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
 
 const WA_URL =
@@ -9,39 +8,37 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-headercor sticky top-0 z-50 border-b border-sand shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <Image
-          src="/logo.jpeg"
+    <header className="bg-titulo sticky top-0 z-50 border-b border-white/10 shadow-sm">
+      <div className="max-w-6xl mx-auto px-4 py-1.5 flex items-center justify-between">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/neuroessencia_logo_v5.svg"
           alt="NeuroEssência"
-          width={160}
-          height={80}
-          className="object-contain"
-          priority
+          className="w-[88vw] max-w-[400px] h-auto sm:w-auto sm:h-[120px]"
         />
 
         <nav className="hidden lg:flex items-center gap-8">
           <a
             href="#sobre"
-            className="text-texto hover:text-titulo transition-colors text-sm font-medium"
+            className="text-white/80 hover:text-white transition-colors text-sm font-medium"
           >
             Sobre
           </a>
           <a
             href="#indicacoes"
-            className="text-texto hover:text-titulo transition-colors text-sm font-medium"
+            className="text-white/80 hover:text-white transition-colors text-sm font-medium"
           >
             Para quem
           </a>
           <a
             href="#processo"
-            className="text-texto hover:text-titulo transition-colors text-sm font-medium"
+            className="text-white/80 hover:text-white transition-colors text-sm font-medium"
           >
             Como funciona
           </a>
           <a
             href="#faq"
-            className="text-texto hover:text-titulo transition-colors text-sm font-medium"
+            className="text-white/80 hover:text-white transition-colors text-sm font-medium"
           >
             Dúvidas
           </a>
@@ -49,7 +46,7 @@ export default function Header() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-titulo text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-titulo-light transition-colors"
+            className="flex items-center gap-2 bg-white text-titulo px-4 py-2 rounded-full text-sm font-semibold hover:bg-fundo transition-colors"
           >
             <WhatsAppIcon className="w-4 h-4" />
             Agendar pelo WhatsApp
@@ -58,7 +55,7 @@ export default function Header() {
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden p-2 text-titulo"
+          className="lg:hidden p-2 text-white"
           aria-label="Menu"
         >
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
@@ -66,32 +63,32 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="lg:hidden bg-headercor border-t border-sand px-5 py-3 flex flex-col gap-1">
+        <div className="lg:hidden bg-titulo border-t border-white/10 px-5 py-3 flex flex-col gap-1">
           <a
             href="#sobre"
             onClick={() => setMenuOpen(false)}
-            className="text-texto font-medium py-3.5 border-b border-sand text-base"
+            className="text-white/80 font-medium py-3.5 border-b border-white/10 text-base"
           >
             Sobre
           </a>
           <a
             href="#indicacoes"
             onClick={() => setMenuOpen(false)}
-            className="text-texto font-medium py-3.5 border-b border-sand text-base"
+            className="text-white/80 font-medium py-3.5 border-b border-white/10 text-base"
           >
             Para quem
           </a>
           <a
             href="#processo"
             onClick={() => setMenuOpen(false)}
-            className="text-texto font-medium py-3.5 border-b border-sand text-base"
+            className="text-white/80 font-medium py-3.5 border-b border-white/10 text-base"
           >
             Como funciona
           </a>
           <a
             href="#faq"
             onClick={() => setMenuOpen(false)}
-            className="text-texto font-medium py-3.5 border-b border-sand text-base"
+            className="text-white/80 font-medium py-3.5 border-b border-white/10 text-base"
           >
             Dúvidas
           </a>
@@ -99,7 +96,7 @@ export default function Header() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 bg-titulo text-white px-4 py-4 rounded-full font-semibold text-base mt-2 mb-1"
+            className="flex items-center justify-center gap-2 bg-white text-titulo px-4 py-4 rounded-full font-semibold text-base mt-2 mb-1"
           >
             <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />
             Agendar pelo WhatsApp
